@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+
 export default class CheckBoxs extends React.Component{
 
     constructor(props){
@@ -8,6 +9,7 @@ export default class CheckBoxs extends React.Component{
             prefs:[]
         }
     }
+
 //APIから都道府県名の取得
 componentDidMount(){
     try{
@@ -21,3 +23,13 @@ componentDidMount(){
     }catch(error){
       console.log("error:",error);
     }
+}
+    render(){
+        
+        return (<div>
+            <ul>
+               {this.state.prefs.map(pref => (<li>{pref.prefName}</li>))}
+            </ul>
+        </div>);
+    }
+}
