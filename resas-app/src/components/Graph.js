@@ -35,6 +35,9 @@ const options = {
 
 function Graph(){
     return <div>
+        <h2>Test Graph</h2>
+        <Line data={data}  height={100}/>
     </div>
 }
+
 export default Graph;
