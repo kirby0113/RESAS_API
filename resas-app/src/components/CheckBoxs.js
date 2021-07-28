@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import "./CheckBoxs.css";
+
 export default class CheckBoxs extends React.Component{
 
     constructor(props){
