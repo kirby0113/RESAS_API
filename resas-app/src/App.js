@@ -2,6 +2,7 @@
 import './App.css';
 import Header from "./components/Header";
 import CheckBoxs from "./components/CheckBoxs";
+import Graph from "./components/Graph";
 
 
 function App() {
