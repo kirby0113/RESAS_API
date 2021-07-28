@@ -28,7 +28,7 @@ componentDidMount(){
 }
     render(){
         
-        return (<div className="checkboxs">
+        return (<div className="CheckBoxs">
                {this.state.prefs.map(pref => (
                     <div key={pref.prefName}>
                         <label htmlFor={pref.prefName}>{pref.prefName}</label>
