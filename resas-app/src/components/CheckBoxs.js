@@ -26,10 +26,13 @@ componentDidMount(){
 }
     render(){
         
-        return (<div>
-            <ul>
-               {this.state.prefs.map(pref => (<li>{pref.prefName}</li>))}
-            </ul>
+        return (<div className="checkboxs">
+               {this.state.prefs.map(pref => (
+                    <div key={pref.prefName}>
+                        <label htmlFor={pref.prefName}>{pref.prefName}</label>
+                        <input type="checkbox" value={pref.prefCode} id={pref.prefName}></input>
+                    </div>
+                ))}
         </div>);
     }
 }
