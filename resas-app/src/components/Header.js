@@ -2,8 +2,8 @@
 
 const Header = () => {
     return (
-        <div classList="Header">
-            <span class="HeaderTitle">Title</span>
+        <div className="Header">
+            <span className="HeaderTitle">Title</span>
         </div>
     )
 }
