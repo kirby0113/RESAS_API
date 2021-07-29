@@ -23,6 +23,39 @@ function App() {
     });
   };
 
+  useEffect(async () => {
+    setGraphData([]);
+    checkedBoxArray.map((el) => {
+      try {
+        axios
+          .get(
+            `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${el}`,
+            {
+              headers: {
+                'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
+              },
+            }
+          )
+          .then((res) => {
+            const datas = res.data.result.data[0].data;
+            //console.log(datas);
+            setGraphData((prevGraphData) => {
+              return [
+                ...prevGraphData,
+                {
+                  index: el,
+                  datas: datas,
+                },
+              ];
+            });
+          });
+      } catch (error) {
+        console.log('error:', error);
+      }
+    });
+  }, [checkedBoxArray]);
+
+  console.log(graphData);
   return (
     <div className="App">
       <Header></Header>
