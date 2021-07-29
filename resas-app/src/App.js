@@ -61,7 +61,7 @@ function App() {
       <Header></Header>
       <h2>都道府県</h2>
       <CheckBoxs onChangeCheck={onChangeCheck}></CheckBoxs>
-      <Graph></Graph>
+      <Graph graphData={graphData}></Graph>
       Hello World.
     </div>
   );
