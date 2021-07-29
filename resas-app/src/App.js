@@ -9,7 +9,7 @@ import Graph from './components/Graph';
 function App() {
   const [prefs,setPrefs] = useState([]);
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
-  const [graphData, setGraphData] = useState();
+  const [graphData, setGraphData] = useState([]);
 
     //APIから都道府県名の取得
     useEffect(() => {
@@ -22,7 +22,6 @@ function App() {
           })
           .then((res) => {
             const prefs = res.data.result;
-            console.log(prefs);
             setPrefs(prefs);
           });
       } catch (error) {
@@ -30,8 +29,7 @@ function App() {
       }
     },[]);
 
-  const onChangeCheck = (e) => {
-    console.log(checkedBoxArray);
+    const onChangeCheck = (e) => {
     setCheckedBoxArray((prevCheckedBoxArray) => {
       let value = Number(e.target.value);
       if (prevCheckedBoxArray.includes(value)) {
@@ -43,11 +41,12 @@ function App() {
     });
   };
 
-  useEffect(async () => {
-    setGraphData([]);
-    checkedBoxArray.map((el) => {
+  //チェックされている都道府県の人口データをAPIから取得
+  useEffect(() => {
+    let datas = [];
+    checkedBoxArray.map(async (el) => {
       try {
-        axios
+        const data = await axios
           .get(
             `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${el}`,
             {
@@ -55,33 +54,26 @@ function App() {
                 'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
               },
             }
-          )
-          .then((res) => {
-            const datas = res.data.result.data[0].data;
-            //console.log(datas);
-            setGraphData((prevGraphData) => {
-              return [
-                ...prevGraphData,
-                {
-                  index: el,
-                  datas: datas,
-                },
-              ];
-            });
+          ).then((response) => response.data.result.data[0].data);
+          datas.push({
+            key:el,
+            data:data
           });
       } catch (error) {
         console.log('error:', error);
       }
+
     });
+    setGraphData(datas);
   }, [checkedBoxArray]);
 
-  console.log(graphData);
+
   return (
     <div className="App">
       <Header></Header>
       <h2>都道府県</h2>
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs}></CheckBoxs>
-      <Graph graphData={graphData} prefs={prefs}></Graph>
+      <Graph prefs={prefs} graphData={graphData}></Graph>
       Hello World.
     </div>
   );
