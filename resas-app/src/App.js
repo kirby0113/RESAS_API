@@ -29,7 +29,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <h2>都道府県</h2>
-      <CheckBoxs></CheckBoxs>
+      <CheckBoxs onChangeCheck={onChangeCheck}></CheckBoxs>
       <Graph></Graph>
       Hello World.
     </div>
