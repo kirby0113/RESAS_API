@@ -32,7 +32,7 @@ componentDidMount(){
                {this.state.prefs.map(pref => (
                     <div key={pref.prefName}>
                         <label htmlFor={pref.prefName}>{pref.prefName}</label>
-                        <input type="checkbox" value={pref.prefCode} id={pref.prefName}></input>
+                        <input type="checkbox" name="prefName" value={pref.prefCode} id={pref.prefName} onChange={this.props.onChangeCheck}></input>
                     </div>
                 ))}
         </div>);
