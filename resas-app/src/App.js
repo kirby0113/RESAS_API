@@ -8,6 +8,7 @@ import Graph from './components/Graph';
 
 function App() {
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
+  const [graphData, setGraphData] = useState();
 
   const onChangeCheck = (e) => {
     console.log(checkedBoxArray);
