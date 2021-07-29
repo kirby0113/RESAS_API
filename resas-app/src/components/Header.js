@@ -1,11 +1,11 @@
-import "./Header.css";
+import './Header.css';
 
 const Header = () => {
-    return (
-        <div className="Header">
-            <span className="HeaderTitle">Title</span>
-        </div>
-    )
-}
+  return (
+    <div className="Header">
+      <span className="HeaderTitle">Title</span>
+    </div>
+  );
+};
 
 export default Header;
