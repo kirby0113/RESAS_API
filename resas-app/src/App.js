@@ -1,3 +1,4 @@
+import {useState} from "react";
 
 import './App.css';
 import Header from "./components/Header";
@@ -6,6 +7,7 @@ import Graph from "./components/Graph";
 
 
 function App() {
+  const [checkedBoxArray,setCheckedBoxArray] = useState([]);
   return (
     <div className="App">
       <Header></Header>
