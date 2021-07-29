@@ -7,8 +7,28 @@ import CheckBoxs from './components/CheckBoxs';
 import Graph from './components/Graph';
 
 function App() {
+  const [prefs,setPrefs] = useState([]);
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
   const [graphData, setGraphData] = useState();
+
+    //APIから都道府県名の取得
+    useEffect(() => {
+      try {
+        axios
+          .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
+            headers: {
+              'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
+            },
+          })
+          .then((res) => {
+            const prefs = res.data.result;
+            console.log(prefs);
+            setPrefs(prefs);
+          });
+      } catch (error) {
+        console.log('error:', error);
+      }
+    },[]);
 
   const onChangeCheck = (e) => {
     console.log(checkedBoxArray);
