@@ -7,9 +7,9 @@ import CheckBoxs from './components/CheckBoxs';
 import Graph from './components/Graph';
 
 function App() {
-  const [prefs,setPrefs] = useState([]);
+  const [prefs, setPrefs] = useState([]);
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
-  const [graphData, setGraphData] = useState([]);
+  const [graphDatas, setGraphDatas] = useState([]);
 
     //APIから都道府県名の取得
     useEffect(() => {
@@ -73,7 +73,7 @@ function App() {
       <Header></Header>
       <h2>都道府県</h2>
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs}></CheckBoxs>
-      <Graph prefs={prefs} graphData={graphData}></Graph>
+      <Graph graphDatas={graphDatas}></Graph>
       Hello World.
     </div>
   );
