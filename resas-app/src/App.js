@@ -11,31 +11,33 @@ function App() {
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
   const [graphDatas, setGraphDatas] = useState([]);
 
-    //APIから都道府県名の取得
-    useEffect(() => {
-      try {
-        axios
-          .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
-            headers: {
-              'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
-            },
-          })
-          .then((res) => {
-            const prefs = res.data.result;
-            setPrefs(prefs);
-          });
-      } catch (error) {
-        console.log('error:', error);
-      }
-    },[]);
+  //APIから都道府県名の取得
+  useEffect(() => {
+    try {
+      axios
+        .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
+          headers: {
+            'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
+          },
+        })
+        .then((res) => {
+          const prefs = res.data.result;
+          setPrefs(prefs);
+        });
+    } catch (error) {
+      console.log('error:', error);
+    }
+  }, []);
 
-    const onChangeCheck = (e) => {
+  const onChangeCheck = (e) => {
     setCheckedBoxArray((prevCheckedBoxArray) => {
       let value = Number(e.target.value);
       if (prevCheckedBoxArray.includes(value)) {
         let processedArray = prevCheckedBoxArray.filter((el) => el !== value);
-        return processedArray;
+        //console.log(processedArray);
+        return [...processedArray];
       } else {
+        //console.log([...prevCheckedBoxArray,Number(e.target.value)]);
         return [...prevCheckedBoxArray, Number(e.target.value)];
       }
     });
@@ -44,9 +46,10 @@ function App() {
   //チェックされている都道府県の人口データをAPIから取得
   useEffect(() => {
     let datas = [];
-    checkedBoxArray.map(async (el) => {
-      try {
-        const data = await axios
+    setGraphDatas([]);
+    try {
+      checkedBoxArray.map(async (el) => {
+        let data = await axios
           .get(
             `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${el}`,
             {
@@ -54,19 +57,23 @@ function App() {
                 'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
               },
             }
-          ).then((response) => response.data.result.data[0].data);
-          datas.push({
-            key:el,
-            data:data
-          });
-      } catch (error) {
-        console.log('error:', error);
-      }
+          )
+          .then((response) => response.data.result.data[0].data);
+        datas = [
+          ...datas,
+          {
+            key: prefs[el - 1].prefName,
+            data: data,
+          },
+        ];
+        console.log('datas:', datas);
 
-    });
-    setGraphData(datas);
+        setGraphDatas(datas);
+      });
+    } catch (error) {
+      console.log('error:', error);
+    }
   }, [checkedBoxArray]);
-
 
   return (
     <div className="App">
