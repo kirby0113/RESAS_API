@@ -8,7 +8,6 @@ function Graph(props) {
   const [graphState, setGraphState] = useState();
   useEffect(() => {
     let datasets = props.graphDatas.map((graphData) => {
-      console.log(graphData);
       const validdata = graphData.data
         .map((data) => {
           if (data.year >= 1995 && data.year <= 2020) {
@@ -45,7 +44,6 @@ function Graph(props) {
       labels: ['1995年', '2000年', '2005年', '2010年', '2015年', '2020年'],
       datasets: datasets,
     };
-    console.log(data);
     setGraphState(data);
   }, [props.graphDatas]);
 

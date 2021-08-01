@@ -30,7 +30,6 @@ function App() {
             )},${Math.floor(Math.random() * 255)})`
             }
           });
-          console.log(prefs);
           setPrefs(prefs);
         });
     } catch (error) {
@@ -77,7 +76,6 @@ function App() {
             data: data,
           },
         ];
-        console.log('datas:', datas);
 
         setGraphDatas(datas);
       });
@@ -99,7 +97,6 @@ function App() {
       <h2>都道府県</h2>
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs}></CheckBoxs>
       <Graph graphDatas={graphDatas} isLoaded={isLoaded}></Graph>
-      Hello World.
     </div>
   );
 }
