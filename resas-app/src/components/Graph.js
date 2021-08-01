@@ -2,6 +2,8 @@ import {useEffect, useState} from 'react';
 
 import {Line} from 'react-chartjs-2';
 
+import "./Graph.css";
+
 function Graph(props) {
   const [graphState, setGraphState] = useState();
   useEffect(() => {
@@ -47,7 +49,11 @@ function Graph(props) {
     setGraphState(data);
   }, [props.graphDatas]);
 
-  const graphContent = props.isLoaded ? <Line data={graphState} height={70} /> : <h2>NowLoading...</h2>;
+  const options = {
+    maintainAspectRatio:false,
+  }
+
+  const graphContent = props.isLoaded ? <div className="graph-container"><Line data={graphState} options={options}/></div> : <h2>NowLoading...</h2>;
 
   return (
     <div>
