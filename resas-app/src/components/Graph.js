@@ -47,10 +47,12 @@ function Graph(props) {
     setGraphState(data);
   }, [props.graphDatas]);
 
+  const graphContent = props.isLoaded ? <Line data={graphState} height={70} /> : <h2>NowLoading...</h2>;
+
   return (
     <div>
       <h2>各都道府県の人口推移</h2>
-      <Line data={graphState} height={70} />
+      {graphContent}
     </div>
   );
 }
