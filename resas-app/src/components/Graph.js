@@ -6,9 +6,6 @@ function Graph(props) {
   const [graphState, setGraphState] = useState();
   useEffect(() => {
     let datasets = props.graphDatas.map((graphData) => {
-      let color = `rgba(${Math.floor(Math.random() * 255)},${Math.floor(
-        Math.random() * 255
-      )},${Math.floor(Math.random() * 255)})`;
       console.log(graphData);
       const validdata = graphData.data
         .map((data) => {
@@ -24,8 +21,8 @@ function Graph(props) {
         label: graphData.key,
         fill: false,
         lineTension: 0.1,
-        backgroundColor: color,
-        borderColor: color,
+        backgroundColor: graphData.color,
+        borderColor: graphData.color,
         borderCapStyle: 'round',
         borderDash: [],
         borderDashOffset: 0.0,
