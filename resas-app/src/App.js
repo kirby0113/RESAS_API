@@ -21,7 +21,16 @@ function App() {
           },
         })
         .then((res) => {
-          const prefs = res.data.result;
+          const prefs = res.data.result.map((pref) => {
+            return {
+            prefName:pref.prefName,
+            prefCode:pref.prefCode,
+            color:`rgba(${Math.floor(Math.random() * 255)},${Math.floor(
+              Math.random() * 255
+            )},${Math.floor(Math.random() * 255)})`
+            }
+          });
+          console.log(prefs);
           setPrefs(prefs);
         });
     } catch (error) {
@@ -63,6 +72,7 @@ function App() {
           ...datas,
           {
             key: prefs[el - 1].prefName,
+            color:prefs[el - 1].color,
             data: data,
           },
         ];
