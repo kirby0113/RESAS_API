@@ -10,7 +10,7 @@ function App() {
   const [prefs, setPrefs] = useState([]);
   const [checkedBoxArray, setCheckedBoxArray] = useState([]);
   const [graphDatas, setGraphDatas] = useState([]);
-
+  const [isLoaded,setIsLoaded] = useState(false);
   //APIから都道府県名の取得
   useEffect(() => {
     try {
@@ -56,6 +56,7 @@ function App() {
   useEffect(() => {
     let datas = [];
     setGraphDatas([]);
+    setIsLoaded(false);
     try {
       checkedBoxArray.map(async (el) => {
         let data = await axios
@@ -85,12 +86,19 @@ function App() {
     }
   }, [checkedBoxArray]);
 
+  //グラフのデータが読み込めた時にグラフを表示する
+  useEffect(() => {
+    if(graphDatas.length === checkedBoxArray.length){ 
+      setIsLoaded(true);
+      }
+  },[graphDatas])
+
   return (
     <div className="App">
       <Header></Header>
       <h2>都道府県</h2>
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs}></CheckBoxs>
-      <Graph graphDatas={graphDatas}></Graph>
+      <Graph graphDatas={graphDatas} isLoaded={isLoaded}></Graph>
       Hello World.
     </div>
   );
