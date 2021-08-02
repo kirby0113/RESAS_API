@@ -4,3 +4,14 @@
     grid-template-columns:repeat(8,1fr);
     grid-row-gap:10px;
 }
+
+@media screen and (max-width:600px){
+    .checkbox{
+        font-size:14px;
+    }
+    .CheckBoxs{
+        font-size:14px;
+        grid-template-columns:repeat(5,1fr)
+ 
+    }
+}
