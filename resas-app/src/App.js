@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState,useRef} from 'react';
 import axios from 'axios';
 
 import './App.css';
@@ -12,6 +12,21 @@ function App() {
   const [checkedBoxArray, setCheckedBoxArray] = useState([]); //チェックボックスのチェック状態を保存
   const [graphDatas, setGraphDatas] = useState([]); //APIから取得したグラフ用のデータを保存
   const [isLoaded,setIsLoaded] = useState(false); //APIからグラフ用のデータを取得し終わったかを保存
+  const [windowDimentions,setWindowDimentions] = useState({}); //現在のウィンドウサイズを保存
+
+  const dimentionsRef = useRef(null); //useRefを使用して、最新の状態のウィンドウサイズを取得
+  dimentionsRef.current = windowDimentions;
+
+  useEffect(() => { //ウィンドウサイズが変更された場合に、最新のウィンドウサイズを保存
+    window.addEventListener("resize",() => {
+      setWindowDimentions({
+        x:window.parent.screen.width,
+        y:window.parent.screen.height,
+      });
+      console.log(window.parent.screen.height);
+      console.log(dimentionsRef.current)
+    });
+  },[]);
 
   //APIから都道府県名の取得
   useEffect(() => {
