@@ -65,7 +65,7 @@ function Graph(props) {
 
   return (
     <div>
-      <h2>各都道府県の人口推移</h2>
+      <h2 className="graphHeading">各都道府県の人口推移</h2>
       {props.isLoaded ? lineGraph : <h2>NowLoading...</h2>}
     </div>
   );
