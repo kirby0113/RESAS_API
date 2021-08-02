@@ -22,3 +22,9 @@
     bottom:0;
     right:-20px;
 }
+
+@media screen and (max-width:600px){
+    .graph-container{
+        width:85vw;
+    }
+}
