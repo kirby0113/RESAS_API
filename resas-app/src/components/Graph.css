@@ -28,3 +28,25 @@
         width:85vw;
     }
 }
+
+@media screen and (max-height:650px){
+    .graph-container{
+        height:55vh;
+    }
+}
+
+@media screen and (max-height:460px){
+    .graphHeading{
+        display:none;
+    }
+
+    .graph-container{
+        margin-top:20px;
+    }
+}
+
+@media screen and (max-width:760px){
+    .graph-container{
+        height:55vh;
+    }
+}
