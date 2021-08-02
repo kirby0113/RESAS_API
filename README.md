@@ -5,6 +5,7 @@
 
 
 ## 使い方
-1.以下のような画面が表示されるので。データをグラフ化したい都道府県にチェックを入れます。
-https://github.com/kirby0113/RESAS_API_Population/issues/1#issue-957922286
+1.以下のような画面が表示されるので、データをグラフ化したい都道府県にチェックを入れます。
+![README_img-1](https://user-images.githubusercontent.com/65604109/127834285-2757938c-8c91-4636-8ad3-3b7716827b21.png)
+
 
