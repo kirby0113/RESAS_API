@@ -7,10 +7,10 @@ import CheckBoxs from './components/CheckBoxs';
 import Graph from './components/Graph';
 
 function App() {
-  const [prefs, setPrefs] = useState([]);
-  const [checkedBoxArray, setCheckedBoxArray] = useState([]);
-  const [graphDatas, setGraphDatas] = useState([]);
-  const [isLoaded,setIsLoaded] = useState(false);
+  const [prefs, setPrefs] = useState([]); //APIから取得した都道府県を保存
+  const [checkedBoxArray, setCheckedBoxArray] = useState([]); //チェックボックスのチェック状態を保存
+  const [graphDatas, setGraphDatas] = useState([]); //APIから取得したグラフ用のデータを保存
+  const [isLoaded,setIsLoaded] = useState(false); //APIからグラフ用のデータを取得し終わったかを保存
   //APIから都道府県名の取得
   useEffect(() => {
     try {
