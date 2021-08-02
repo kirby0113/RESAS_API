@@ -50,8 +50,8 @@ function Graph(props) {
   const options = {
     maintainAspectRatio:false,
   }
-
-  const graphContent = props.isLoaded ? <div className="graph-container"><Line data={graphState} options={options}/></div> : <h2>NowLoading...</h2>;
+      <span className="y-label">人口数</span>
+      <span className="x-label">年</span>
 
   return (
     <div>
