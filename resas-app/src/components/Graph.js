@@ -40,6 +40,12 @@ function Graph(props) {
         data: validdata,
       };
     });
+    if(datasets.length === 0){ //APIからデータを取得していないときは空のグラフを生成する
+      datasets = [{
+        label:"",
+        data: [],
+      }];
+    }
     const data = {
       labels: ['1995年', '2000年', '2005年', '2010年', '2015年', '2020年'],
       datasets: datasets,
