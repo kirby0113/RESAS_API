@@ -5,3 +5,20 @@
     padding-left:20px;
     padding-right:0;
 }
+
+.y-label{
+    font-size:16px;
+    letter-spacing:1px;
+
+    position:absolute;
+    top:-5px;
+    left: 22px;
+}
+
+.x-label{
+    font-size:16px;
+    letter-spacing:1px;
+    position:absolute;
+    bottom:0;
+    right:-20px;
+}
