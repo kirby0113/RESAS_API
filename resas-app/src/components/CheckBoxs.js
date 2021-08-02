@@ -8,6 +8,7 @@ const CheckBoxs = (props) => {
           <label htmlFor={pref.prefName}>{pref.prefName}</label>
           <input
             type="checkbox"
+            className="checkbox"
             name="prefName"
             value={pref.prefCode}
             id={pref.prefName}
