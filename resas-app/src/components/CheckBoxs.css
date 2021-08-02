@@ -15,3 +15,13 @@
  
     }
 }
+
+@media screen and (max-height:700px){
+    .checkbox{
+        font-size:14px;
+    }
+    .CheckBoxs{
+        font-size:14px;
+        grid-template-columns:repeat(10,1fr)
+    }
+}
