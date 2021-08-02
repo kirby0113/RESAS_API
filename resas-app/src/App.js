@@ -7,10 +7,12 @@ import CheckBoxs from './components/CheckBoxs';
 import Graph from './components/Graph';
 
 function App() {
+
   const [prefs, setPrefs] = useState([]); //APIから取得した都道府県を保存
   const [checkedBoxArray, setCheckedBoxArray] = useState([]); //チェックボックスのチェック状態を保存
   const [graphDatas, setGraphDatas] = useState([]); //APIから取得したグラフ用のデータを保存
   const [isLoaded,setIsLoaded] = useState(false); //APIからグラフ用のデータを取得し終わったかを保存
+
   //APIから都道府県名の取得
   useEffect(() => {
     try {
@@ -42,10 +44,8 @@ function App() {
       let value = Number(e.target.value);
       if (prevCheckedBoxArray.includes(value)) {
         let processedArray = prevCheckedBoxArray.filter((el) => el !== value);
-        //console.log(processedArray);
         return [...processedArray];
       } else {
-        //console.log([...prevCheckedBoxArray,Number(e.target.value)]);
         return [...prevCheckedBoxArray, Number(e.target.value)];
       }
     });
