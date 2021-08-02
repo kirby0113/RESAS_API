@@ -47,16 +47,20 @@ function Graph(props) {
     setGraphState(data);
   }, [props.graphDatas]);
 
-  const options = {
-    maintainAspectRatio:false,
-  }
+  const lineGraph = (
+    <div className="graph-container">
+      <Line data={graphState} options={{
+      maintainAspectRatio:false,
+      }}/>
       <span className="y-label">人口数</span>
       <span className="x-label">年</span>
+    </div>
+  );
 
   return (
     <div>
       <h2>各都道府県の人口推移</h2>
-      {graphContent}
+      {props.isLoaded ? lineGraph : <h2>NowLoading...</h2>}
     </div>
   );
 }
