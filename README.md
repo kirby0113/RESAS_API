@@ -16,6 +16,7 @@
 - Windows10
 - Visual Studio Code
 ### フレームワーク・ライブラリ
+- Node.js v14.16.0
 - React v17.0.2
 - chart.js v3.5.0
 - react-chartjs-2 v3.0.4
@@ -26,3 +27,9 @@
 - eslint-plugin-jest v24.4.0
 - eslint-plugin-prettier v3.4.0
 - eslint-plugin-react v7.24.0
+
+## Reference
+- [React公式ドキュメント](https://ja.reactjs.org/docs/getting-started.html)
+- [Chart.js公式ドキュメント](https://www.chartjs.org/docs/latest/)
+- [React(TypeScript)にreact-chartjs-2を導入し、グラフを作る方法](https://fwywd.com/tech/react-chartjs-2)
+- [ReactでAxiosを使用する方法 | DigitalOcean](https://www.digitalocean.com/community/tutorials/react-axios-react-ja)
