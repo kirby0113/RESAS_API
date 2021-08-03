@@ -145,7 +145,7 @@ const App = () => {
       )}
       <Header></Header>
       {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? (
-        <h2>都道府県</h2>
+        <h2 className="pref-heading">都道府県</h2>
       ) : (
         <div
           className='openModalButton'

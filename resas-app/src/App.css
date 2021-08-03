@@ -94,3 +94,7 @@
   opacity:1;
   z-index:3;
 }
+
+.pref-heading{
+  font-family:'Noto Sans JP',sans-serif;
+}
