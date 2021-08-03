@@ -11,6 +11,14 @@
 1. チェックを入れた都道府県の人口データが、グラフに反映されて表示されます。
 ![README-img-2](https://user-images.githubusercontent.com/65604109/127881086-611b1749-355b-485b-9406-d4e16d01dd9b.png)
 
+## レスポンシブデザイン
+- ウィンドウサイズが一定以下の状態となった場合、以下のような画面を表示します。
+![README-img-3](https://user-images.githubusercontent.com/65604109/128046895-9811300e-7872-44f2-9d86-6869dc7c1ac3.png)
+- 「都道府県を選ぶ」ボタンを押すと、このようなモーダルウィンドウが表示されます。モーダルウィンドウを閉じる場合は、周りの黒背景もしくは右上上部の×印をクリックしてください。
+![README-img-4](https://user-images.githubusercontent.com/65604109/128047249-09bf2bf4-daef-4f80-9ffd-2ac35afbf842.png)
+- ここでチェックを入れると、同様にグラフに反映されます。
+![README-img-5](https://user-images.githubusercontent.com/65604109/128047807-4e6eddec-20e8-4071-923a-a4a0f47323b0.png)
+
 ## 開発環境
 ### OS・コードエディタ
 - Windows10
