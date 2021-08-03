@@ -24,8 +24,6 @@ function App() {
         x:window.parent.screen.width,
         y:window.parent.screen.height,
       });
-      console.log(window.parent.screen.height);
-      console.log(dimentionsRef.current)
     });
   },[]);
 
