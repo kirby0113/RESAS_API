@@ -2,10 +2,11 @@ import {useEffect, useState} from 'react';
 
 import {Line} from 'react-chartjs-2';
 
-import "./Graph.css";
+import './Graph.css';
 
-function Graph(props) {
+const Graph = (props) => {
   const [graphState, setGraphState] = useState();
+
   useEffect(() => {
     let datasets = props.graphDatas.map((graphData) => {
       const validdata = graphData.data
@@ -40,12 +41,17 @@ function Graph(props) {
         data: validdata,
       };
     });
-    if(datasets.length === 0){ //APIからデータを取得していないときは空のグラフを生成する
-      datasets = [{
-        label:"",
-        data: [],
-      }];
+
+    //APIからデータを取得していないときは空のグラフを生成する
+    if (datasets.length === 0) {
+      datasets = [
+        {
+          label: '',
+          data: [],
+        },
+      ];
     }
+
     const data = {
       labels: ['1995年', '2000年', '2005年', '2010年', '2015年', '2020年'],
       datasets: datasets,
@@ -54,21 +60,24 @@ function Graph(props) {
   }, [props.graphDatas]);
 
   const lineGraph = (
-    <div className="graph-container">
-      <Line data={graphState} options={{
-      maintainAspectRatio:false,
-      }}/>
-      <span className="y-label">人口数</span>
-      <span className="x-label">年</span>
+    <div className='graph-container'>
+      <Line
+        data={graphState}
+        options={{
+          maintainAspectRatio: false,
+        }}
+      />
+      <span className='y-label'>人口数</span>
+      <span className='x-label'>年</span>
     </div>
   );
 
   return (
     <div>
-      <h2 className="graphHeading">各都道府県の人口推移</h2>
+      <h2 className='graphHeading'>各都道府県の人口推移</h2>
       {props.isLoaded ? lineGraph : <h2>NowLoading...</h2>}
     </div>
   );
-}
+};
 
 export default Graph;
