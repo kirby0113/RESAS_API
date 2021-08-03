@@ -61,8 +61,8 @@
 @media screen and (max-width:450px){
     .CheckBoxs{
         padding:10px;
-        width:95vw;
-        height:80vh;
+        width:85vw;
+        height:65vh;
         font-size:8px;
     }
 }
