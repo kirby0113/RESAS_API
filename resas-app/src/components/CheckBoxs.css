@@ -5,25 +5,69 @@
     grid-row-gap:10px;
 }
 
-@media screen and (max-width:600px){
+
+@media screen and (max-height:650px){
+    .CheckBoxs{
+        width:70vw;
+        height:70vh;
+        padding:50px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background-color:#fff;
+        z-index:-1;
+        opacity:0;
+        font-size:14px;
+        grid-template-columns:repeat(6,1fr)
+    }
+
     .checkbox{
         font-size:14px;
-    }
-    .CheckBoxs{
-        font-size:14px;
-        grid-template-columns:repeat(5,1fr)
- 
     }
 }
 
-@media screen and (max-height:700px){
+@media screen and (max-width:760px){
+    .CheckBoxs{
+        width:70vw;
+        height:70vh;
+        padding:50px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        background-color:#fff;
+        z-index:-1;
+        opacity:0;
+        font-size:14px;
+        grid-template-columns:repeat(4,1fr)
+    }
     .checkbox{
         font-size:14px;
     }
+}
+
+@media screen and (max-width:450px){
     .CheckBoxs{
-        font-size:14px;
-        grid-template-columns:repeat(10,1fr)
+        padding:10px;
+        width:95vw;
+        height:80vh;
+        font-size:8px;
     }
+}
+
+@media screen and (max-height:500px){
+    .CheckBoxs{
+        padding:10px;
+        height:80vh;
+        width:90vw;
+        grid-template-columns:repeat(7,1fr);
+        font-size:8px;
+    }
+}
+
+
+
 .modalActive{
     opacity:1;
     z-index:1;
