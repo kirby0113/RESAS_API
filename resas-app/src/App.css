@@ -37,6 +37,15 @@
   }
 }
 
+.openModalButton{
+  display:inline-block;
+  margin-top:5vh;
+  padding:2vh 3vw;
+  border-radius:40px;
+  background:linear-gradient(90deg,#87ceeb,#afeeee);
+  box-shadow: 5px 5px 5px #00000029;
+  cursor:pointer;
+}
 .closeButton{
   position:absolute;
   top:10px;
