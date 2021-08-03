@@ -48,9 +48,21 @@
   padding:2vh 3vw;
   border-radius:40px;
   background:linear-gradient(90deg,#87ceeb,#afeeee);
-  box-shadow: 5px 5px 5px #00000029;
+  box-shadow: 5px 5px 5px #00000040;
   cursor:pointer;
+  transition:all .2s;
 }
+
+.openModalButton:hover{
+  transform:translateY(-2px);
+  box-shadow: 10px 10px 10px #00000035;
+}
+
+.openModalButton:active{
+  box-shadow: 5px 5px 5px #00000060;
+  transform:translateY(.5px);
+}
+
 
 .overray{
   position:absolute;
