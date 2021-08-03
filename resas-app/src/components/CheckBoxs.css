@@ -13,6 +13,11 @@
     cursor:pointer;
 }
 
+.checkbox{
+    cursor:pointer;
+}
+
+
 @media screen and (max-height:650px){
     .CheckBoxs{
         width:70vw;
