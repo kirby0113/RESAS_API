@@ -24,4 +24,7 @@
         font-size:14px;
         grid-template-columns:repeat(10,1fr)
     }
+.modalActive{
+    opacity:1;
+    z-index:1;
 }
