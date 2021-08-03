@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&display=swap');
+
 .Header{
     background-color:#000;
     padding:15px 0;
@@ -6,6 +8,7 @@
 
 .HeaderTitle{
     color:#fff;
+    font-family: 'Noto Sans JP',sans-serif;
     font-size:23px;
     font-weight:bold;
     letter-spacing:1px;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&display=swap');
+
 .App {
   text-align: center;
 }
@@ -38,6 +40,9 @@
 }
 
 .openModalButton{
+  font-family:'Noto Sans JP',sans-serif;
+  font-size:15px;
+  letter-spacing:1px;
   display:inline-block;
   margin-top:5vh;
   padding:2vh 3vw;

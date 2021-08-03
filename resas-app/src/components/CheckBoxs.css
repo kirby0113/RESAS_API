@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;300;500&display=swap');
+
 .CheckBoxs{
     margin-top:20px;
     display:grid;
@@ -5,6 +7,11 @@
     grid-row-gap:10px;
 }
 
+.checkbox-label{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:200;
+    cursor:pointer;
+}
 
 @media screen and (max-height:650px){
     .CheckBoxs{
@@ -43,9 +50,6 @@
         font-size:14px;
         grid-template-columns:repeat(4,1fr);
         transition:top .8s,opacity .5s;
-    }
-    .checkbox{
-        font-size:14px;
     }
 }
 

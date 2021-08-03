@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&display=swap');
+
 .graph-container{
     height:40vh;
     width:90vw;
@@ -6,9 +8,15 @@
     padding-right:0;
 }
 
+.graph-heading{
+    font-family:'Noto Sans JP',sans-serif;
+}
+
 .y-label{
+    font-family:'Noto Sans JP',sans-serif;
     font-size:16px;
     letter-spacing:1px;
+    font-weight:bold;
 
     position:absolute;
     top:-5px;
@@ -16,6 +24,8 @@
 }
 
 .x-label{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:bold;
     font-size:16px;
     letter-spacing:1px;
     position:absolute;
