@@ -13,10 +13,8 @@ const Graph = (props) => {
   const [graphState, setGraphState] = useState();
 
   useEffect(() => {
-
     //必要な数だけグラフデータを作成し、datasetsとする
     let datasets = props.graphDatas.map((graphData) => {
-
       //1995年から2020年までのデータのみ抽出する
       const validdata = graphData.data
         .map((data) => {
@@ -27,7 +25,7 @@ const Graph = (props) => {
           }
         })
         .filter((data) => data);
-        
+
       //抽出したデータをもとに、必要な数のdatasetsを作成
       return {
         label: graphData.key,
@@ -68,7 +66,6 @@ const Graph = (props) => {
       datasets: datasets,
     };
     setGraphState(data);
-
   }, [props.graphDatas]);
 
   //表示する折れ線グラフとラベルをまとめてlineGraphとしています

@@ -8,10 +8,11 @@ import './CheckBoxs.css';
 const CheckBoxs = (props) => {
   return (
     <div className={'CheckBoxs' + ' ' + (props.modalState ? 'modalActive' : '')}>
-      
       {props.prefs.map((pref) => (
         <div key={pref.prefName}>
-          <label className="checkbox-label" htmlFor={pref.prefName}>{pref.prefName}</label>
+          <label className='checkbox-label' htmlFor={pref.prefName}>
+            {pref.prefName}
+          </label>
           <input
             type='checkbox'
             className='checkbox'
@@ -22,7 +23,6 @@ const CheckBoxs = (props) => {
           />
         </div>
       ))}
-
     </div>
   );
 };

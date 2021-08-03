@@ -127,7 +127,9 @@ const App = () => {
           onClick={() => {
             setModalState(false);
           }}
-        >&nbsp;</div>
+        >
+          &nbsp;
+        </div>
       )}
       {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? (
         ''
