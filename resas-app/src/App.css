@@ -46,6 +46,21 @@
   box-shadow: 5px 5px 5px #00000029;
   cursor:pointer;
 }
+
+.overray{
+  position:absolute;
+  width:100vw;
+  height:100vh;
+  background-color:#000;
+  opacity:0;
+  z-index:-1;
+}
+
+.overrayActive{
+  opacity:0.66;
+  z-index:1;
+}
+
 .closeButton{
   position:absolute;
   top:10px;
