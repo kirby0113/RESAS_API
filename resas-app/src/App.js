@@ -6,7 +6,7 @@ import Header from './components/Header';
 import CheckBoxs from './components/CheckBoxs';
 import Graph from './components/Graph';
 
-function App() {
+const API_KEY = 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh';
 
   const [prefs, setPrefs] = useState([]); //APIから取得した都道府県を保存
   const [checkedBoxArray, setCheckedBoxArray] = useState([]); //チェックボックスのチェック状態を保存
@@ -33,7 +33,7 @@ function App() {
       axios
         .get('https://opendata.resas-portal.go.jp/api/v1/prefectures', {
           headers: {
-            'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
+            'X-API-KEY': API_KEY,
           },
         })
         .then((res) => {
@@ -77,7 +77,7 @@ function App() {
             `https://opendata.resas-portal.go.jp/api/v1/population/composition/perYear?cityCode=-&prefCode=${el}`,
             {
               headers: {
-                'X-API-KEY': 'QdcBeaEZsZeDqYRyHdNIpt4iU26GTa8ERHG1tdXh',
+              'X-API-KEY': API_KEY,
               },
             }
           )
