@@ -1,3 +1,11 @@
+/*
+各コンポーネント等をまとめ、表示しているコンポーネントです。
+ここからAPIに接続し、取得したデータを必要な場所に回しています。
+
+横幅760px未満、もしくは650px未満の時にはレスポンシブに対応できるように、
+出力するコンポーネントを変更しています。(dimentionsRef.current.x dimentionsRef.current.y)
+*/
+
 import {useEffect, useState, useRef} from 'react';
 import axios from 'axios';
 
@@ -32,7 +40,7 @@ const App = () => {
     });
   }, []);
 
-  //APIから都道府県名の取得
+  //APIから都道府県名の取得(最初のレンダリング時のみ実行)
   useEffect(() => {
     try {
       axios
@@ -71,7 +79,7 @@ const App = () => {
     });
   };
 
-  //チェックされている都道府県の人口データをAPIから取得
+  //チェックされている都道府県の人口データをAPIから取得（チェック状態が変化したときに実行）
   useEffect(() => {
     let datas = [];
     setGraphDatas([]);
@@ -101,13 +109,14 @@ const App = () => {
     }
   }, [checkedBoxArray]);
 
-  //グラフのデータが読み込めた時にグラフを表示する
+  //グラフのデータが読み込めた時にグラフを表示する（グラフデータが変化したときに実行）
   useEffect(() => {
     if (graphDatas.length === checkedBoxArray.length) {
       setIsLoaded(true);
     }
   }, [graphDatas]);
 
+  //横幅が760px未満か、縦幅が650px未満の時、モーダル用のコンポーネントを出力しています。
   return (
     <div className='App'>
       {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? (

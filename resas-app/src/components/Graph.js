@@ -1,3 +1,8 @@
+/*
+グラフを表示するためのコンポーネントです。
+APIから取得した各都道府県の人口データをもとに、グラフ作成に必要なデータを作りグラフ化します。
+*/
+
 import {useEffect, useState} from 'react';
 
 import {Line} from 'react-chartjs-2';
@@ -8,7 +13,11 @@ const Graph = (props) => {
   const [graphState, setGraphState] = useState();
 
   useEffect(() => {
+
+    //必要な数だけグラフデータを作成し、datasetsとする
     let datasets = props.graphDatas.map((graphData) => {
+
+      //1995年から2020年までのデータのみ抽出する
       const validdata = graphData.data
         .map((data) => {
           if (data.year >= 1995 && data.year <= 2020) {
@@ -18,7 +27,8 @@ const Graph = (props) => {
           }
         })
         .filter((data) => data);
-
+        
+      //抽出したデータをもとに、必要な数のdatasetsを作成
       return {
         label: graphData.key,
         fill: false,
@@ -52,13 +62,16 @@ const Graph = (props) => {
       ];
     }
 
+    //作成したグラフデータをgraphStateセット
     const data = {
       labels: ['1995年', '2000年', '2005年', '2010年', '2015年', '2020年'],
       datasets: datasets,
     };
     setGraphState(data);
+
   }, [props.graphDatas]);
 
+  //表示する折れ線グラフとラベルをまとめてlineGraphとしています
   const lineGraph = (
     <div className='graph-container'>
       <Line
