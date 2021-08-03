@@ -12,7 +12,7 @@ function App() {
   const [checkedBoxArray, setCheckedBoxArray] = useState([]); //チェックボックスのチェック状態を保存
   const [graphDatas, setGraphDatas] = useState([]); //APIから取得したグラフ用のデータを保存
   const [isLoaded,setIsLoaded] = useState(false); //APIからグラフ用のデータを取得し終わったかを保存
-  const [windowDimentions,setWindowDimentions] = useState({}); //現在のウィンドウサイズを保存
+  const [windowDimentions,setWindowDimentions] = useState({x:window.innerWidth,y:window.innerHeight}); //現在のウィンドウサイズを保存
   const [modalState,setModalState] = useState(false); //モーダル要素が表示されているかを保存（一定未満のサイズの時、チェックボックスをモーダル要素にしています）
 
   const dimentionsRef = useRef(null); //useRefを使用して、最新の状態のウィンドウサイズを取得
@@ -21,8 +21,8 @@ function App() {
   useEffect(() => { //ウィンドウサイズが変更された場合に、最新のウィンドウサイズを保存
     window.addEventListener("resize",() => {
       setWindowDimentions({
-        x:window.parent.screen.width,
-        y:window.parent.screen.height,
+        x:window.innerWidth,
+        y:window.innerHeight,
       });
     });
   },[]);
@@ -103,14 +103,14 @@ function App() {
     if(graphDatas.length === checkedBoxArray.length){ 
       setIsLoaded(true);
       }
-  },[graphDatas])
+  },[graphDatas]);
 
   return (
     <div className="App">
-      {windowDimentions.y > 650 && windowDimentions.x > 760 ? "" : <div className={"overray" + " " + (modalState ? "overrayActive" : "")} onClick={() => {setModalState(false)}}></div>}
-      {windowDimentions.y > 650 && windowDimentions.x > 760 ? "" : <div className={"closeButton" + " " + (modalState ? "closeButtonActive" : "")}>&#935;</div>}
+      {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? "" : <div className={"overray" + " " + (modalState ? "overrayActive" : "")} onClick={() => {setModalState(false)}}></div>}
+      {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? "" : <div className={"closeButton" + " " + (modalState ? "closeButtonActive" : "")} onClick={() => {setModalState(false)}}>&#935;</div>}
       <Header></Header>
-      {windowDimentions.y > 650 && windowDimentions.x > 760 ? <h2>都道府県</h2> : <div className = "openModalButton" onClick={() => {setModalState(true)}}>都道府県を選ぶ</div>}
+      {dimentionsRef.current.y > 650 && dimentionsRef.current.x > 760 ? <h2>都道府県</h2> : <div className = "openModalButton" onClick={() => {setModalState(true)}}>都道府県を選ぶ</div>}
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs} modalState={modalState}></CheckBoxs>
       <Graph graphDatas={graphDatas} isLoaded={isLoaded}></Graph>
     </div>
