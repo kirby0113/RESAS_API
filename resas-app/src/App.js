@@ -110,6 +110,7 @@ function App() {
   return (
     <div className="App">
       {windowDimentions.y > 650 && windowDimentions.x > 760 ? "" : <div className={"overray" + " " + (modalState ? "overrayActive" : "")} onClick={() => {setModalState(false)}}></div>}
+      {windowDimentions.y > 650 && windowDimentions.x > 760 ? "" : <div className={"closeButton" + " " + (modalState ? "closeButtonActive" : "")}>&#935;</div>}
       <Header></Header>
       {windowDimentions.y > 650 && windowDimentions.x > 760 ? <h2>都道府県</h2> : <div className = "openModalButton" onClick={() => {setModalState(true)}}>都道府県を選ぶ</div>}
       <CheckBoxs onChangeCheck={onChangeCheck} prefs={prefs} modalState={modalState}></CheckBoxs>
